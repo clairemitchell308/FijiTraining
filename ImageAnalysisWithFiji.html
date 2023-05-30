@@ -43,12 +43,12 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <li>These slides: http://tiny.cc/iaworkshop (redirects to https://pcwww.liv.ac.uk/~dnmason/ia.html)</li>	
 <ul><li>Navigation: arrow keys left and right to navigate</li><li>'m' key to get to navigation menu</li><li>Escape for slide overview</li></ul>
 <li>Where to find help after the workshop (links also available on the menu):</li>
-<ul><li><a target="_blank" href="https://imagej.net">ImageJ Website</a></li><li><a target="_blank" href="https://forum.imagej.net">Forum</a></li><li><a target="_blank" href="https://postacquisition.wordpress.com">Post-Acquisition (my blog)</a></li><li><a target="_blank" href="http://cci.liv.ac.uk/contact.html">The CCI</a></li></ul>
+<ul><li><a target="_blank" href="https://imagej.net">ImageJ Website</a></li><li><a target="_blank" href="https://forum.imagej.net">Forum</a></li><li><a target="_blank" href="https://postacquisition.wordpress.com">Post-Acquisition (Slide author's blog)</a></li><li><a target="_blank" href="https://www.beatson.gla.ac.uk/advanced-technologies/bair.html">BAIR</a></li></ul>
 </ul>
 </section>
 
 <section data-menu-title="Opening Test Data" data-state="fiji2a"><style>.fiji2a header:after { content: "Opening Test Data"; }</style>
-<p>Throughtout the presentation, test data will look like this: <a href="material/01-Photo.tif"><code>01-Photo.tif</code></a></p>
+<p>Throughout the presentation, test data will look like this: <a href="material/01-Photo.tif"><code>01-Photo.tif</code></a></p>
 <img class="half fragment" src="img-ia/material_01.png"/>
 <img class="half fragment" src="img-ia/material_02.png"/>
 <p class="fragment">Commands on the Fiji menu will look like: <code>[File > Save]</code></p>
@@ -122,6 +122,10 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 </section>
 <section data-state="fiji1"><style>.fiji1 header:after { content: "Introducing ImageJ and Fiji"; }</style>
 <img  class="imbox" src="img-ia/fiji3.png"/>
+<p></p>
+</section>
+<section data-state="fiji1"><style>.fiji1 header:after { content: "Introducing ImageJ and Fiji"; }</style>
+<img  class="imbox" src="img-ia/fiji2a.png"/>
 <p></p>
 </section>
 <section data-state="fiji1"><style>.fiji1 header:after { content: "Introducing ImageJ and Fiji"; }</style>
@@ -332,8 +336,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section data-menu-title="Channel Display Modes" data-state="fiji6"><style>.fiji6 header:after { content: "Channel Display Modes"; }</style>
 <ul style="font-size:80%"><li>Open <a href="material/06-multichannel.tif"><code>06-MultiChannel.tif</code></a></li>
-<li>(If opening via URL run <code>[Image > Stack > Hyperstack]</code>)</li>
-<li>Navigate through the channels then run Channels Tool <code>[Image > Color > Channels Tool]</code> and change to Greyscale</li></ul>
+<li>Navigate through the channels then run Channels Tool <code>[Image > Color > Channels Tool]</code> and change to Grayscale</li></ul>
 <img class="half" src="img-ia/modes_01.png"/>
 <img data-fragment-index="1" class="half fragment" src="img-ia/modes_03.png"/>
 <p>In this image, each channel already has an associated Look Up Table (LUT)</p>
@@ -347,8 +350,8 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <li>Adjust the Black and White Points <code>[Image > Adjust > Brightness &amp; Contrast]</code></li>
 <li>Draw a ROI on a bright area and Measure ('m')</li>
 </ul>
-<p class="fragment">IMPORTANT! The nav bar still <i>selects</i> the active channel, and that is where measurements / maniplulations are applied!</p>
-<p class="fragment">The infobar text, slider and 1px coloured image border all indicate which channel is selected.</p>
+<p class="fragment">IMPORTANT! The nav bar still <i>selects</i> the active channel, and that is where measurements / manipulations are applied!</p>
+<p class="fragment">The infobar text and slider indicate which channel is selected.</p>
 </section>
 
 <section data-menu-title="Digital Imaging and Colour" data-state="fiji7z"><style>.fiji7z header:after { content: ""; }</style>
@@ -408,7 +411,11 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <p>A couple of useful LUTs:</p>
 <img class="threequart" src="img-ia/colourLUT7.png"/>
 </section>
-
+<section data-state="fiji14a"><style>.fiji14a header:after { content: "Colour: Changing LUTs"; }</style>
+<p>Multicolour LUTs should be perceptually uniform:</p>
+<img class="threequart" src="img-ia/puLUTs.png"/>
+<p>Use <code>[Image > Color > Simulate Color Blindness]</code> to check LUT suitability.</p>
+</section>
 
 
 <!-- ---------------------- APPLICATIONS JUMP PAGE -------------------------- -->
@@ -569,7 +576,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section data-state="apps21"><style>.apps21 header:after { content: "Batch Processing: Data"; }</style>
 <p>We'll use a subset of dataset BBBC008 from the <a href="https://data.broadinstitute.org/bbbc/BBBC008/" target="_blank">Broad Bioimage Benchmark Collection</a></p>
-<ul><li>Download the zip file from <a href="materials/BBBC008_partial.zip">here</a> to the desktop</li><li>Unzip (right click and "Extract All") to end up with a folder on your desktop called <code>BBBC008_partial</code></li></ul><br>
+<ul><li>Download the zip file from <a href="material/BBBC008_partial.zip">here</a> to the desktop</li><li>Unzip (right click and "Extract All") to end up with a folder on your desktop called <code>BBBC008_partial</code></li></ul><br>
 <img class="" src="img-ia/batch_04.png"/>
 <ul><li>Make another folder on the desktop called <code>Output</code></li><ul>
 </section> 
