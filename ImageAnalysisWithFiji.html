@@ -40,7 +40,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 <section data-menu-title="Links and Resources" data-state="intro0"><style>.intro0 header:after { content: "Links and Resources"; }</style>
 <ul>
-<li>These slides: http://tiny.cc/iaworkshop (redirects to https://pcwww.liv.ac.uk/~dnmason/ia.html)</li>	
+<li>These slides: https://clairemitchell308.github.io/FijiTraining/ImageAnalysisWithFiji.html</li>	
 <ul><li>Navigation: arrow keys left and right to navigate</li><li>'m' key to get to navigation menu</li><li>Escape for slide overview</li></ul>
 <li>Where to find help after the workshop (links also available on the menu):</li>
 <ul><li><a target="_blank" href="https://imagej.net">ImageJ Website</a></li><li><a target="_blank" href="https://forum.imagej.net">Forum</a></li><li><a target="_blank" href="https://postacquisition.wordpress.com">Post-Acquisition (Slide author's blog)</a></li><li><a target="_blank" href="https://www.beatson.gla.ac.uk/advanced-technologies/bair.html">BAIR</a></li></ul>
@@ -502,6 +502,16 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <img class="third" src="img-ia/seg_CCA_2b.png"/><span>&nbsp;&nbsp;&nbsp;</span><img class="third fragment" src="img-ia/seg_CCA_3.png"/>
 </section>
 <section data-state="apps12"><style>.apps12 header:after { content: "Segmentation: Object Counting"; }</style>
+<p>Applying a filter can clean up noise and improve segmentation.</p>
+<img class="threequart" src="img-ia/filtering1.png"/>
+<p><code>[Process > Filters > Gaussian Blur/Median]</code></p>
+</section>
+</section>
+<section data-state="apps12"><style>.apps12 header:after { content: "Segmentation: Object Counting"; }</style>
+<p>Filtering reduces the segmented noise.</p>
+<img class="threequart" src="img-ia/filtering2.png"/>
+</section>
+<section data-state="apps12"><style>.apps12 header:after { content: "Segmentation: Object Counting"; }</style>
 <p>A quick fix for separating partially-touching roughly circular objects is to use <code>[Process > Binary > Watershed]</code> before running CCA</p>
 <img class="third" src="img-ia/seg_CCA_4.png"/><span>&nbsp;&nbsp;&nbsp;</span><img class="third fragment" src="img-ia/seg_CCA_5.png"/>
 </section>
@@ -854,7 +864,7 @@ close("*");
 <section data-state="apps1"><style>.apps1 header:after { content: "Tracking: Theory"; }</style>
 <p>Life exists in the fourth dimension. Tracking allows you to correlate spatial and temporal properties.</p>
 <img class="third" src="img-ia/tracks_01.png"/><span>&nbsp;&nbsp;&nbsp;</span><img data-fragment-index="2" class="third fragment" src="img-ia/tracks_02.png"/>
-<p data-fragment-index="1" class="fragment">Most partcles look the same! Without any way to identify them, tracking is probabilistic.</p>
+<p data-fragment-index="1" class="fragment">Most particles look the same! Without any way to identify them, tracking is probabilistic.</p>
 </section>
 
 <section data-state="apps1"><style>.apps1 header:after { content: "Tracking: Theory"; }</style>
@@ -1009,7 +1019,7 @@ close("*");
 
 <section data-state="apps42"><style>.apps42 header:after { content: "Image Stitching: 10% overlap"; }</style>
 <ul>
-<li>Open <a href="material/Stitching_overlap.zip"><code>Stitching_overlap.zip</code></a>. Unzip to the desktop.</li>
+<li>Open <a href="material/Stitching_Overlap.zip"><code>Stitching_Overlap.zip</code></a>. Unzip to the desktop.</li>
 <li>Run <code>[Plugins > Stitching > Grid/Collection Stitching]</code> again</li>
 <li>Change the directory, filename and overlap.</li>
 <li>Hit OK</li>
