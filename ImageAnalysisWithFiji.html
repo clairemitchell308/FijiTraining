@@ -637,8 +637,8 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <ul><p>Use the macro recorder and The Batch Macro function to:
 <li>Calibrate the image to 0.1 microns per pixel (<a href="#/19"><i class="fa fa-external-link"></i></a>)</li>
 <li>Draw a 10&mu;m green scale bar in the bottom left corner (<a href="#/36"><i class="fa fa-external-link"></i></a>)</li>
-<li class="fragment">[BONUS MARKS 1] Also write the filename onto each image (in red) (<a href="https://imagej.net/ij/developer/macro/functions.html#getTitle"><i class="fa fa-external-link"></i></a>)</li>
-<li class="fragment">[BONUS MARKS 2] Print out the filename and spot count to the log (<a href="https://imagej.net/ij/docs/guide/146-29.html#sub:Find-Maxima"><i class="fa fa-external-link"></i></a>)</li>
+<li class="fragment">[BONUS MARKS 1] Segment the nuclei and output the binary masks</li>
+<li class="fragment">[BONUS MARKS 2] Print out the filename and nuclei count to the log (<a href="https://imagej.net/ij/developer/macro/functions.html#getTitle"><i class="fa fa-external-link"></i></a>)</li>
 </li></ul>
 </div>
 <img class="third right" src="img-ia/batch_12.png"/>
@@ -651,31 +651,35 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 <!-- <pre><code data-trim data-noescape> -->
 <pre><code data-trim data-noescape>
 //-- Calibrate
-run("Properties...", "unit=um pixel_width=0.1 pixel_height=0.1");
+Stack.setXUnit("um");
+run("Properties...", "channels=1 slices=1 frames=1 pixel_width=0.1 pixel_height=0.1 voxel_depth=0.1");
 //-- Add the scale bar
-run("RGB Color");
-run("Scale Bar...", "width=10 height=10 font=30 color=Green background=None location=[Lower Left]");
+run("Scale Bar...", "width=10 height=10 font=30 color=Green location=[Lower Left] horizontal bold overlay");
 </code></pre>
 <div data-fragment-index="5" class="fragment">
 <p>Advanced test</p>
 <pre><code data-trim data-noescape>
-//-- [BONUS 2] Estimate and print the counts
-run("Find Maxima...", "noise=10 output=[Point Selection]");
-getSelectionCoordinates(xPos,yPos);
-print("Image:  "+getTitle()+" has "+xPos.length+" objects");
-run("Select None");
+//-- [BONUS 1] Segment nuclei and save the binary masks
+//Filter
+run("Median...", "radius=2");
 
-//-- [BONUS 1] Add the title
-run("RGB Color");
-setFont("SansSerif", 18, "antialiased");
-setColor("red");
-drawString(getTitle(), 20, 30);
+//Threshold image
+setAutoThreshold("Otsu dark no-reset");
+setOption("BlackBackground", true);
+run("Convert to Mask");
 
-//-- Calibrate
-run("Properties...", "unit=um pixel_width=0.1 pixel_height=0.1");
-//-- Add the scale bar
-run("RGB Color");
-run("Scale Bar...", "width=10 height=10 font=30 color=Green background=None location=[Lower Left]");
+//Split touching nuclei
+run("Watershed");
+
+//Connected component analysis
+run("Analyze Particles...", "clear summarize");
+
+//-- [BONUS 2] Print filename and nuclei count to log
+print("Image: " + getTitle() + " has " + Table.get("Count",0) + " nuclei");
+
+//Close the Summary table
+close("Summary");
+
 </code></pre>
 </div>
 </div>
